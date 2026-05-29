@@ -15,7 +15,6 @@
     "@radix-ui/react-scroll-area": "latest",
     "@radix-ui/react-tabs": "latest",
     "lucide-react": "latest",
-    "modules-vg-reels": "github:VICTORY-digital/modules-vg-reels",
     "next": "16.2.6",
     "react": "19.2.6",
     "react-dom": "19.2.6",

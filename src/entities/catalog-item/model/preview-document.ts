@@ -12,7 +12,7 @@ const previewDependencyCss = [
   "node_modules/swiper/swiper.css",
   "node_modules/swiper/modules/free-mode.css",
   "node_modules/swiper/modules/grid.css",
-  "node_modules/modules-vg-reels/dist/modules-vg-reels.css",
+  "templates/vendor/modules-vg-reels/modules-vg-reels.css",
 ].map((filePath) => path.join(process.cwd(), filePath));
 
 export function rewriteTemplateAssetUrls(html: string) {
@@ -181,7 +181,7 @@ export function getPreviewImportMap() {
     imports: {
       swiper: "/api/vendor-assets/swiper/swiper.mjs",
       "swiper/modules": "/api/vendor-assets/swiper/modules/index.mjs",
-      "modules-vg-reels": "/api/vendor-assets/modules-vg-reels/dist/index.js",
+      "modules-vg-reels": "/api/template-assets/vendor/modules-vg-reels/index.js",
     },
   }, null, 2);
 }

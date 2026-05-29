@@ -30,4 +30,15 @@ describe("vendor assets route", () => {
 
     expect(response.status).toBe(403);
   });
+
+  it("does not expose vendored template runtime packages from node_modules", async () => {
+    const response = await GET(
+      new Request(
+        "http://localhost/api/vendor-assets/modules-vg-reels/dist/index.js",
+      ),
+      context(["modules-vg-reels", "dist", "index.js"]),
+    );
+
+    expect(response.status).toBe(403);
+  });
 });

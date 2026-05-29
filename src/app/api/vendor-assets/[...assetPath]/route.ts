@@ -4,7 +4,6 @@ import path from "node:path";
 export const dynamic = "force-dynamic";
 
 const packageRoots: Record<string, string> = {
-  "modules-vg-reels": path.join(process.cwd(), "node_modules/modules-vg-reels"),
   swiper: path.join(process.cwd(), "node_modules/swiper"),
 };
 

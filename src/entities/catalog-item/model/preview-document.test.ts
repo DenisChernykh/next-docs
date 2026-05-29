@@ -56,7 +56,7 @@ describe("preview document", () => {
     expect(document).toContain('<script type="importmap">');
     expect(document).toContain('"swiper": "/api/vendor-assets/swiper/swiper.mjs"');
     expect(document).toContain(
-      '"modules-vg-reels": "/api/vendor-assets/modules-vg-reels/dist/index.js"',
+      '"modules-vg-reels": "/api/template-assets/vendor/modules-vg-reels/index.js"',
     );
     expect(document).toContain("initReviews(document)");
     expect(document).toContain("setupReels([],");
