@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "documentation": {
+    "schema": "../../docs/manifest.schema.md",
+    "agentWorkflow": "../../docs/agent-workflow.md",
+    "research": null
+  },
+  "blockId": "brand-statement-cta",
+  "title": "Brand statement with CTA",
+  "description": "Centered brand/logo section with a large statement, supporting text, and one primary CTA.",
+  "type": "section",
+  "status": "canonical",
+  "source": {
+    "blade": "section-brand-statement-cta.blade.php",
+    "demoHtml": "demo.html",
+    "fixture": "fixture.json",
+    "scss": "_brand-statement-cta.scss",
+    "js": null
+  },
+  "naming": {
+    "sectionFile": "section-brand-statement-cta.blade.php",
+    "cmsView": "section-brand-statement-cta",
+    "sectionClass": "brand-statement-cta",
+    "containerClass": null,
+    "sectionIdDefault": "brand-statement-cta",
+    "ariaTitleId": "brand-statement-cta-title",
+    "ariaLabel": null,
+    "cmsKey": "brandStatementCta",
+    "cmsCollection": "brandStatementCta",
+    "cmsCompositeKey": "brandStatementCta:brandStatementCta",
+    "platformProvider": null,
+    "modalId": null,
+    "contactModalId": null,
+    "componentClasses": [],
+    "variantModifiers": []
+  },
+  "cms": {
+    "method": "get_collections_with_meta",
+    "collection": "brandStatementCta",
+    "key": "brandStatementCta",
+    "metaFields": [
+      "title",
+      "description"
+    ],
+    "itemFields": [
+      "logo",
+      "button_text",
+      "button_link",
+      "modal_id"
+    ],
+    "variables": [
+      "site_name",
+      "name",
+      "logo",
+      "button_main_text",
+      "button_main_link"
+    ],
+    "providers": [],
+    "normalization": []
+  },
+  "requiresFoundation": {
+    "cssClasses": [
+      "section",
+      "container",
+      "section-header",
+      "section-header--column",
+      "section-title",
+      "section-text"
+    ],
+    "partials": [
+      "button"
+    ],
+    "scss": [
+      "foundation/section/_section.scss",
+      "foundation/button/_button.scss"
+    ],
+    "helpers": [
+      "get_collections_with_meta",
+      "get_variable",
+      "assets_url",
+      "get_view"
+    ],
+    "runtime": []
+  },
+  "dependencies": {
+    "js": [],
+    "assets": [
+      "assets/logo-compact.svg"
+    ],
+    "assetGroups": {}
+  },
+  "variants": [],
+  "aliases": {
+    "purpose": "Legacy names from existing projects. Agents use these only to find and map old implementations; new code must use the canonical naming fields.",
+    "classes": [
+      "detailing-standard",
+      "booking-cta"
+    ],
+    "ids": [
+      "detailing-standard",
+      "booking-start"
+    ],
+    "cmsKeys": [
+      "detailingStandard:detailingStandard",
+      "concept:concept"
+    ],
+    "files": [
+      "section-detailing-standard.blade.php",
+      "_detailing-standard.scss",
+      "section-concept.blade.php",
+      "section-booking-cta.blade.php",
+      "_booking-cta.scss"
+    ],
+    "dataAttributes": [],
+    "modals": [],
+    "projects": [
+      {
+        "name": "edge",
+        "repoPath": "../laravel/edge",
+        "bladePath": "resources/views/section/section-detailing-standard.blade.php",
+        "scssPath": "assets/scss/sections/_detailing-standard.scss"
+      },
+      {
+        "name": "hvoya-cms-preview",
+        "repoPath": "../hvoya-cms-preview",
+        "bladePath": "resources/views/section/section-concept.blade.php",
+        "includePath": "resources/views/section/section-booking-cta.blade.php",
+        "scssPath": "assets/scss/sections/_booking-cta.scss",
+        "note": "Hvoya names this visual block booking-cta and stores its CMS data under concept:concept."
+      }
+    ]
+  },
+  "designRefs": [
+    {
+      "project": "edge",
+      "figmaFileKey": "FqDgL2WVFhLuMwMidZg7e9",
+      "nodeId": "1067:12522",
+      "role": "reference"
+    },
+    {
+      "project": "hotels",
+      "figmaFileKey": "KPTAXJsGu2l6IJ00K8VHph",
+      "nodeId": "307:5082",
+      "role": "mobile-reference"
+    }
+  ],
+  "agent": {
+    "usage": "Use this block only when the target section is a centered brand statement with logo, title, supporting text, and a single primary CTA. Content, brand asset, and link values must come from CMS variables or block fixture data.",
+    "transferSteps": [
+      "Copy section-brand-statement-cta.blade.php as the target section view unless the project has an explicit naming map.",
+      "Ensure required foundation styles and the button partial exist before adding block-specific SCSS.",
+      "Add a brandStatementCta:brandStatementCta collection fixture or map an existing legacy key through the target CMS layer.",
+      "Do not duplicate section-title, section-text, or button styles inside the block SCSS."
+    ],
+    "acceptance": [
+      "Rendered section has the canonical .brand-statement-cta class.",
+      "Rendered section uses the standard .container without block-specific overrides.",
+      "Block-specific SCSS does not target or override .section, .container, .section-header, .section-title, .section-text, or .button.",
+      "Blade reads get_collections_with_meta('brandStatementCta', 'brandStatementCta', ...).",
+      "Logo, title, text, and CTA can be changed through CMS data.",
+      "demo.html visually mirrors section-brand-statement-cta.blade.php structure."
+    ],
+    "notes": [],
+    "futureGeneralization": null
+  }
+}

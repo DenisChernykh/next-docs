@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "documentation": {
+    "schema": "../../docs/manifest.schema.md",
+    "agentWorkflow": "../../docs/agent-workflow.md",
+    "research": null
+  },
+  "blockId": "vacancies",
+  "title": "Vacancies",
+  "description": "Recruitment section with open positions, vacancy cards, details modal, and response CTA.",
+  "type": "section",
+  "status": "canonical",
+  "source": {
+    "blade": "section-vacancies.blade.php",
+    "demoHtml": null,
+    "fixture": "fixture.json",
+    "scss": "_vacancies.scss",
+    "js": "vacancies.js"
+  },
+  "naming": {
+    "sectionFile": "section-vacancies.blade.php",
+    "cmsView": "section-vacancies",
+    "sectionClass": "vacancies",
+    "containerClass": null,
+    "sectionIdDefault": "vacancies",
+    "ariaTitleId": "vacancies-title",
+    "ariaLabel": null,
+    "cmsKey": "vacancies",
+    "cmsCollection": "vacancies",
+    "cmsCompositeKey": "vacancies:vacancies",
+    "platformProvider": null,
+    "modalId": "modalVacancy",
+    "contactModalId": "modalContact",
+    "componentClasses": [],
+    "variantModifiers": [
+      "vacancies--split-aside",
+      "vacancies--grid-cta"
+    ]
+  },
+  "cms": {
+    "method": "get_collections_with_meta",
+    "collection": "vacancies",
+    "key": "vacancies",
+    "metaFields": [
+      "title",
+      "description"
+    ],
+    "itemFields": [
+      "title",
+      "text",
+      "pay",
+      "exp",
+      "work_time"
+    ],
+    "variables": [
+      "vacancies_variant"
+    ],
+    "providers": [],
+    "normalization": []
+  },
+  "requiresFoundation": {
+    "cssClasses": [
+      "section",
+      "container",
+      "section-header",
+      "section-header--column-start",
+      "section-title",
+      "section-text",
+      "button"
+    ],
+    "partials": [
+      "button"
+    ],
+    "scss": [
+      "foundation/section/_section.scss",
+      "foundation/button/_button.scss"
+    ],
+    "helpers": [
+      "get_collections_with_meta",
+      "get_variable",
+      "get_view"
+    ],
+    "runtime": [
+      "shared modal system handling data-modal-id and data-modal-close"
+    ]
+  },
+  "dependencies": {
+    "js": [
+      "vacancies.js",
+      "swiper"
+    ],
+    "assets": [],
+    "assetGroups": {}
+  },
+  "variants": [
+    {
+      "variantId": "split-aside",
+      "title": "Split aside",
+      "description": "Intro and response CTA on the left, vacancy card grid on the right.",
+      "modifier": "vacancies--split-aside",
+      "source": {
+        "demoHtml": "demo.split-aside.html"
+      },
+      "designRefs": [
+        {
+          "project": "hotels",
+          "figmaFileKey": "KPTAXJsGu2l6IJ00K8VHph",
+          "nodeId": "241:4211",
+          "role": "reference"
+        },
+        {
+          "project": "detailing",
+          "figmaFileKey": "FqDgL2WVFhLuMwMidZg7e9",
+          "nodeId": "1082:15254",
+          "role": "reference"
+        }
+      ],
+      "usage": "Use when the section is a two-column recruitment layout with title/description and response CTA separated from the vacancy card list.",
+      "acceptance": [
+        "Rendered section has .vacancies.vacancies--split-aside.",
+        "The aside contains the section header and the response CTA.",
+        "The aside header uses .section-header.section-header--column-start for a left-aligned vertical title/text stack.",
+        "On mobile, split-aside initializes the vacancies Swiper with slidesPerView auto, 12px spaceBetween, neutral 320px cards, and no visual skin tied to Swiper active state.",
+        "The vacancy cards render in a two-column desktop grid and become a horizontal slider strip on mobile."
+      ]
+    },
+    {
+      "variantId": "grid-cta",
+      "title": "Grid CTA",
+      "description": "Top section header, wide vacancy card grid, and centered response CTA below.",
+      "modifier": "vacancies--grid-cta",
+      "source": {
+        "demoHtml": "demo.grid-cta.html"
+      },
+      "designRefs": [
+        {
+          "project": "hotels",
+          "figmaFileKey": "KPTAXJsGu2l6IJ00K8VHph",
+          "nodeId": "133:2716",
+          "role": "reference"
+        }
+      ],
+      "usage": "Use when the section is a full-width recruitment layout with header above the card grid and the response CTA below it.",
+      "acceptance": [
+        "Rendered section has .vacancies.vacancies--grid-cta.",
+        "The section header renders above the cards without block-specific header layout overrides.",
+        "Vacancy cards reveal the visible \"Читать полностью\" action on hover/focus.",
+        "On mobile, grid-cta initializes the vacancies Swiper with slidesPerView auto, 12px spaceBetween, 350px cards, visible \"Читать полностью\" action, and a centered response CTA block.",
+        "The vacancy cards render in a three-column desktop grid and the response CTA renders below the grid."
+      ]
+    }
+  ],
+  "aliases": {
+    "purpose": "Legacy names from existing projects. Agents use these only to find and map old implementations; new code must use the canonical naming fields.",
+    "classes": [
+      "vacancies",
+      "vacancy-card",
+      "vacancy-modal"
+    ],
+    "ids": [
+      "vacancies"
+    ],
+    "cmsKeys": [
+      "vacancies:vacancies"
+    ],
+    "files": [
+      "section-vacancies.html",
+      "section-vacancies.blade.php",
+      "_vacancies.scss",
+      "vacancies.js"
+    ],
+    "dataAttributes": [],
+    "modals": [
+      "modalVacancy",
+      "modalContact"
+    ],
+    "projects": [
+      {
+        "name": "edges",
+        "repoPath": "../edges",
+        "htmlPath": "templates/sections/section-vacancies.html",
+        "scssPath": "assets/scss/sections/_vacancies.scss",
+        "jsPath": "assets/js/modules/vacancies.js",
+        "variant": "grid-cta"
+      },
+      {
+        "name": "hvoya-cms-preview",
+        "repoPath": "../hvoya-cms-preview",
+        "bladePath": "resources/views/section/section-vacancies.blade.php",
+        "scssPath": "assets/scss/sections/_vacancies.scss",
+        "jsPath": "assets/js/modules/vacancies.js",
+        "variant": "split-aside"
+      },
+      {
+        "name": "needles",
+        "repoPath": "../needles",
+        "htmlPath": "templates/sections/section-vacancies.html",
+        "scssPath": "assets/scss/sections/_vacancies.scss",
+        "jsPath": "assets/js/modules/vacancies.js",
+        "variant": "split-aside"
+      }
+    ]
+  },
+  "designRefs": [
+    {
+      "project": "hotels",
+      "figmaFileKey": "KPTAXJsGu2l6IJ00K8VHph",
+      "nodeId": "241:4211",
+      "role": "split-aside-reference"
+    },
+    {
+      "project": "detailing",
+      "figmaFileKey": "FqDgL2WVFhLuMwMidZg7e9",
+      "nodeId": "1082:15254",
+      "role": "split-aside-reference"
+    },
+    {
+      "project": "hotels",
+      "figmaFileKey": "KPTAXJsGu2l6IJ00K8VHph",
+      "nodeId": "133:2716",
+      "role": "grid-cta-reference"
+    }
+  ],
+  "agent": {
+    "usage": "Use this block only for recruitment/open-positions sections where the data and interaction are vacancy-specific: position title, experience, schedule, pay, details modal, and response CTA. If a future section only reuses the visual card layout without this recruitment contract, choose or create another semantic block instead.",
+    "transferSteps": [
+      "Choose a variant by matching the target design structure, not by brand colors.",
+      "Copy section-vacancies.blade.php as the target section view unless the project has an explicit naming map.",
+      "Ensure required foundation styles, button partial, and shared modal runtime exist before adding block-specific SCSS and JS.",
+      "Ensure Swiper and FreeMode are available when using the mobile vacancy card strip; initialize it only on max-width 767px and destroy it on wider screens.",
+      "Add a vacancies:vacancies collection fixture or map an existing legacy key through the target CMS layer.",
+      "Keep one modalVacancy instance; populate it from each card's .vacancy-card__modal-content via vacancies.js.",
+      "Keep modalVacancy markup in the vacancies section view immediately after the section; do not move it to foundation, page layout, or duplicate it per card.",
+      "Route response CTAs through modalContact instead of duplicating vacancy forms inside every card.",
+      "Use theme/foundation tokens for brand skin differences; do not create brand-specific variants for colors, radii, fonts, or button skins."
+    ],
+    "acceptance": [
+      "Rendered section has the canonical .vacancies class and one supported variant modifier.",
+      "Rendered target-project section uses id=\"vacancies\" and aria-labelledby=\"vacancies-title\" regardless of selected variant.",
+      "Rendered vacancy cards use .vacancy-card and read title, text, pay, exp, and work_time from vacancies:vacancies items.",
+      "Exactly one modalVacancy exists for the section.",
+      "modalVacancy markup is block-owned and remains in the vacancies section view, while modalContact is only referenced as a shared/global modal.",
+      "Clicking a .vacancy-card__hitarea fills modalVacancy from .vacancy-card__modal-content.",
+      "Injected vacancy description content is styled by raw CMS tags inside .vacancy-modal__description: p, h1-h6, ul, ol, and li must not require extra CMS classes.",
+      "Response CTAs target modalContact.",
+      "Button elements use foundation button styles without block-specific button size, padding, radius, icon, hover, active, or typography overrides.",
+      "Block-specific SCSS does not target or override .section, .container, .section-header, .section-title, .section-text, or .button as standalone selectors; left-aligned vertical headers use foundation .section-header--column-start.",
+      "Both variant demos visually mirror the shared Blade structure."
+    ],
+    "notes": [
+      "Canonical section ids stay semantic: use id=\"vacancies\" and aria-labelledby=\"vacancies-title\" in target projects.",
+      "Variant names describe layout and belong in modifiers such as .vacancies--split-aside or .vacancies--grid-cta, not in section ids.",
+      "Demo HTML may use preview-only unique ids only because multiple variants render on the same registry page."
+    ],
+    "futureGeneralization": "If a non-vacancy section later shares the card-to-details-modal-to-CTA scenario, extract a shared base block such as detail-card-list and keep vacancies as a domain preset or compatibility layer."
+  }
+}

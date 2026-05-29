@@ -1,0 +1,35 @@
+{
+  "name": "next-doc",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@radix-ui/react-scroll-area": "latest",
+    "@radix-ui/react-tabs": "latest",
+    "lucide-react": "latest",
+    "modules-vg-reels": "github:VICTORY-digital/modules-vg-reels",
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "sass": "latest",
+    "shiki": "latest",
+    "swiper": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "16.2.6",
+    "typescript": "latest",
+    "vitest": "latest"
+  }
+}

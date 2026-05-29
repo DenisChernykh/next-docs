@@ -1,0 +1,335 @@
+{
+  "schemaVersion": 1,
+  "documentation": {
+    "schema": "../../docs/manifest.schema.md",
+    "agentWorkflow": "../../docs/agent-workflow.md",
+    "research": "../../docs/agent-workflows/block-research/runs/reviews/componentization-decision-v2.md"
+  },
+  "blockId": "reviews",
+  "title": "Reviews",
+  "description": "Customer reviews section assembled from small review components: foundation header, aggregate proof, rating tile, platform links, review cards, slider controls, and a shared details modal.",
+  "type": "section",
+  "status": "canonical",
+  "source": {
+    "blade": "section-reviews.blade.php",
+    "demoHtml": "demo.html",
+    "fixture": "fixture.json",
+    "scss": "_reviews.scss",
+    "js": "reviews.js"
+  },
+  "naming": {
+    "sectionFile": "section-reviews.blade.php",
+    "cmsView": "section-reviews",
+    "sectionClass": "reviews",
+    "containerClass": null,
+    "sectionIdDefault": "reviews",
+    "ariaTitleId": "reviews-title",
+    "ariaLabel": null,
+    "cmsKey": "reviewsText",
+    "cmsCollection": "reviewsText",
+    "cmsCompositeKey": "reviewsText:reviewsText",
+    "platformProvider": "getPlatformsWithReviews",
+    "modalId": "modalReviews",
+    "contactModalId": null,
+    "componentClasses": [
+      "reviews-proof",
+      "reviews-rating",
+      "reviews-platforms",
+      "reviews-platform",
+      "reviews-stars",
+      "reviews-card",
+      "reviews-slider",
+      "reviews-modal"
+    ],
+    "variantModifiers": []
+  },
+  "cms": {
+    "method": "get_collections",
+    "collection": "reviewsText",
+    "key": "reviewsText",
+    "metaFields": [
+      "active",
+      "tag",
+      "title",
+      "description",
+      "text",
+      "count",
+      "total",
+      "rating",
+      "total_rating",
+      "total_reviews"
+    ],
+    "itemFields": [
+      "name",
+      "author",
+      "image",
+      "avatar",
+      "rating",
+      "date",
+      "title",
+      "text",
+      "platform"
+    ],
+    "variables": [],
+    "providers": [
+      {
+        "id": "sectionCopy",
+        "method": "get_collections",
+        "collection": "reviewsText",
+        "key": "reviewsText",
+        "fields": [
+          "active",
+          "tag",
+          "title",
+          "description",
+          "text",
+          "count",
+          "total",
+          "rating",
+          "total_rating",
+          "total_reviews"
+        ]
+      },
+      {
+        "id": "platformsAndReviews",
+        "method": "getPlatformsWithReviews",
+        "platformListKeys": [
+          "ratings",
+          "platforms",
+          "links"
+        ],
+        "platformFields": [
+          "key",
+          "name",
+          "label",
+          "image",
+          "icon",
+          "logo_type",
+          "link",
+          "rating",
+          "count"
+        ],
+        "reviewListKeys": [
+          "reviews",
+          "items"
+        ],
+        "reviewFields": [
+          "name",
+          "author",
+          "image",
+          "avatar",
+          "rating",
+          "date",
+          "title",
+          "text",
+          "platform"
+        ]
+      }
+    ],
+    "normalization": [
+      "Normalize platform keys to yandex, 2gis, google, otzovik, and flamp when possible.",
+      "Accept legacy logo-* platform aliases as input only; new code renders canonical reviews platform classes.",
+      "Use platform logo_type to choose icon color: white maps to icon-{platform}.svg, black maps to icon-{platform}-black.svg. Default is white for CMS compatibility; registry landing data uses black.",
+      "Use 140 visible characters as the canonical long-review threshold for rendering the read-more trigger."
+    ]
+  },
+  "requiresFoundation": {
+    "cssClasses": [
+      "section",
+      "container",
+      "section-header",
+      "section-header--column",
+      "section-header--column-start",
+      "section-header--split",
+      "section-header__main",
+      "section-header__aside",
+      "section-title",
+      "section-text",
+      "modal",
+      "modal-window",
+      "modal-close"
+    ],
+    "partials": [
+      "modal"
+    ],
+    "scss": [
+      "foundation/section/_section.scss",
+      "foundation/button/_button.scss"
+    ],
+    "helpers": [
+      "get_collections",
+      "getPlatformsWithReviews",
+      "assets_url"
+    ],
+    "runtime": [
+      "shared modal system handling data-modal-id and data-modal-close",
+      "Swiper base styles and navigation module"
+    ]
+  },
+  "dependencies": {
+    "js": [
+      "reviews.js",
+      "swiper"
+    ],
+    "assets": [
+      "assets/avatar-alexey.png",
+      "assets/icon-2gis.svg",
+      "assets/icon-yandex.svg",
+      "assets/icon-google.svg",
+      "assets/icon-otzovik.svg",
+      "assets/icon-flamp.svg",
+      "assets/icon-2gis-black.svg",
+      "assets/icon-yandex-black.svg",
+      "assets/icon-google-black.svg",
+      "assets/icon-otzovik-black.svg",
+      "assets/icon-flamp-black.svg"
+    ],
+    "assetGroups": {
+      "platformLogos": {
+        "cmsField": "logo_type",
+        "values": [
+          "white",
+          "black"
+        ],
+        "default": "white",
+        "landingDefault": "black",
+        "targetDirectory": "images/reviews",
+        "filePattern": {
+          "white": "icon-{platform}.svg",
+          "black": "icon-{platform}-black.svg"
+        },
+        "platforms": [
+          "2gis",
+          "yandex",
+          "google",
+          "otzovik",
+          "flamp"
+        ],
+        "sourceNaming": {
+          "white": "Exported and normalized to the icon-{platform}.svg convention.",
+          "black": "Exported from Grani and renamed with the -black suffix."
+        }
+      }
+    }
+  },
+  "variants": [],
+  "aliases": {
+    "purpose": "Legacy names from existing reviews implementations. Agents use these only to find and map old code; new code must use the canonical naming fields.",
+    "classes": [
+      "review",
+      "review__item",
+      "reviews-slide",
+      "reviews__slide",
+      "reviews-platform",
+      "modal-review"
+    ],
+    "ids": [
+      "review"
+    ],
+    "cmsKeys": [
+      "section-review",
+      "review",
+      "reviewsText",
+      "reviewsText:reviewsText"
+    ],
+    "files": [
+      "section-review.blade.php",
+      "section-reviews.html",
+      "_review.scss",
+      "_reviews.scss",
+      "initModalReview.js",
+      "reviewsModal.js"
+    ],
+    "dataAttributes": [
+      "data-review-open",
+      "data-review-index",
+      "data-review-modal-text",
+      "data-transfer-item",
+      "data-transfer-text",
+      "data-modal-id"
+    ],
+    "modals": [
+      "modalReviews",
+      "modal-review"
+    ],
+    "projects": [
+      {
+        "name": "hvoya",
+        "role": "canonical CMS-ready reference",
+        "composition": "rating panel with slider"
+      },
+      {
+        "name": "grani",
+        "role": "common summary/platform row reference",
+        "composition": "proof strip with grid slider"
+      },
+      {
+        "name": "estetica",
+        "role": "split editorial reference",
+        "composition": "split editorial proof carousel"
+      },
+      {
+        "name": "velour",
+        "role": "legacy singular composition reference",
+        "composition": "single review panel with modal"
+      }
+    ]
+  },
+  "designRefs": [
+    {
+      "project": "detailing",
+      "figmaFileKey": "FqDgL2WVFhLuMwMidZg7e9",
+      "nodeId": "134:2466",
+      "mobileNodeId": "307:4282",
+      "role": "proof-slider-reference"
+    },
+    {
+      "project": "hotels",
+      "figmaFileKey": "KPTAXJsGu2l6IJ00K8VHph",
+      "nodeId": "216:14420",
+      "mobileNodeId": "345:8898",
+      "role": "rating-card-composition-reference"
+    },
+    {
+      "project": "beauty",
+      "figmaFileKey": "L1kL7JPEm3eFfAastC9PGW",
+      "nodeId": "110:2548",
+      "mobileNodeId": "294:8626",
+      "role": "split-editorial-composition-reference"
+    },
+    {
+      "project": "template-sites",
+      "figmaFileKey": "Z3GlZS3dJbqGfYBAmspMaX",
+      "nodeId": "1626:2455",
+      "mobileNodeId": "1653:48148",
+      "role": "platform-score-matrix-future"
+    }
+  ],
+  "agent": {
+    "usage": "Use this block for customer reputation and reviews sections where the data contract includes section copy, aggregate rating proof, platform links, review cards, optional read-more actions, and a shared reviews modal. The canonical reviews example is composed from small classes instead of section-level layout modifiers.",
+    "transferSteps": [
+      "Copy section-reviews.blade.php as the target section view unless the target project has an explicit naming map.",
+      "Map the target CMS to reviews section copy and getPlatformsWithReviews platform/review data before editing Blade structure.",
+      "Keep the header on foundation primitives: section-header, section-title, and section-text.",
+      "Compose proof from reviews-proof, reviews-rating, reviews-platforms, and reviews-platform instead of adding section-level reviews--* modifiers.",
+      "Copy platform logo assets to assets_url()/images/reviews and set platform logo_type to black on light surfaces or white on dark/accent surfaces.",
+      "Use reviews-slider as a horizontal Swiper rail with auto-width review cards and project slider-arrow controls.",
+      "Keep one modalReviews instance after the section. Every long review card must own its own data-reviews-modal-template.",
+      "Initialize initReviews(root) after injecting registry/demo HTML and in target projects after the reviews section is mounted."
+    ],
+    "acceptance": [
+      "The block renders with .section.reviews and no reviews--* layout modifier on the section.",
+      "source.blade, source.scss, source.js, source.fixture, and source.demoHtml paths exist.",
+      "Section copy is read from reviewsText:reviewsText; platform ratings and review cards are read from getPlatformsWithReviews().",
+      "The header uses foundation section-header/section-title/section-text primitives; reviews compositions may use section-header--column, section-header--column-start, or section-header--split without block SCSS overriding those primitives.",
+      "The aggregate proof uses reviews-proof, reviews-rating, reviews-platforms, and reviews-platform classes.",
+      "The review carousel uses reviews-slider, reviews-slider__track, reviews-slider__controls, and reviews-slider__button classes.",
+      "Only long reviews render data-reviews-modal-open with the text \"Читать полностью\".",
+      "Each long review owns a data-reviews-modal-template template used by the shared modalReviews instance.",
+      "Closing by close button, backdrop, or Escape clears data-reviews-modal-content.",
+      "Block-specific SCSS does not override foundation primitives such as section, container, section-header, section-title, section-text, or button."
+    ],
+    "notes": [],
+    "futureGeneralization": null
+  }
+}

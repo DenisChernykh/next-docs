@@ -1,0 +1,61 @@
+<section class="reels section-reels">
+  <div class="container-reels">
+    <div class="swiper-shell" data-swiper="reels">
+      <div class="swiper">
+        <div class="swiper-wrapper" data-reels-preview-wrapper>
+          <template>
+            <div class="swiper-slide" data-reels-preview-trigger>
+              <div class="reels__item">
+                <div class="reels__preview">
+                  <img data-reel="preview" data-reel-attr="src" alt="Рилс" loading="lazy" />
+                </div>
+                <div class="reels__description body-text-reg" data-reel="title"></div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="reels-modal" data-modal="reels">
+  <button class="reels-modal__close" data-modal-close="reels"></button>
+  <div class="reels-modal__block">
+    <div class="swiper" data-swiper="reels-modal">
+      <div class="swiper-wrapper" data-reels-modal-wrapper>
+        <template>
+          <div class="swiper-slide">
+            <div data-reel="buttonHasLink" data-reel-attr="data-has-link">
+              <div class="reels-modal__item">
+                <div class="reels-modal__header">
+                  <div class="reels-modal__bars" data-reel-progress-bars></div>
+                  <div class="reels-modal__title">
+                    <div class="" data-reel="title"></div>
+                  </div>
+                </div>
+                <div class="reels-modal__footer">
+                  <div data-reel="text"></div>
+                </div>
+                <div class="reels-modal__contents" data-reel-medias></div>
+                <div class="reels-modal__nav">
+                  <button type="button" class="reels-modal__nav-zone reels-modal__nav-zone--prev"
+                    data-reels-nav="prev"></button>
+                  <button type="button" class="reels-modal__nav-zone reels-modal__nav-zone--next"
+                    data-reels-nav="next"></button>
+                </div>
+              </div>
+              <a data-reel="buttonLink" data-reel-attr="href" target="_blank" rel="nofollow noindex"
+                class="button button--primary button--arrow reels-modal__button">
+                <span data-reel="buttonText"></span>
+              </a>
+              <button class="button button--primary button--arrow reels-modal__button" data-close-reels
+                data-modal-id="table" data-reel="buttonText"></button>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</div>

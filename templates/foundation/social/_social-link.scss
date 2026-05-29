@@ -1,0 +1,60 @@
+@use '../section/mixins' as *;
+@use '../section/variables' as *;
+
+.social-link {
+  display: inline-flex;
+  width: 40rem;
+  height: 40rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 4rem;
+  background: var(--brand-solid);
+  color: var(--text-fg_static-white);
+  text-decoration: none;
+  transition:
+    opacity $transition,
+    transform $transition;
+
+  img {
+    display: block;
+    width: 24rem;
+    height: 24rem;
+    object-fit: contain;
+  }
+
+  @include hover {
+    opacity: 0.84;
+    transform: translateY(-1rem);
+  }
+
+  @include mobile {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.social-link--sm {
+  width: 40rem;
+  height: 40rem;
+
+  @include mobile {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.social-link--vk {
+  background: #366eff;
+}
+
+.social-link--max {
+  background: linear-gradient(135deg, #316cff 0%, #963cf5 100%);
+}

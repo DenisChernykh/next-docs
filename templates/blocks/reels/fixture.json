@@ -1,0 +1,185 @@
+[
+  {
+    "id": "reel-1",
+    "title": "Погружение в вкус Азии",
+    "text": "Приятного аппетита с азиатским акцентом",
+    "avatar": "/blocks/reels/assets/reel.webp",
+    "preview": "/blocks/reels/assets/reel.webp",
+    "buttonText": "Забронировать стол 1",
+    "buttonLink": "google1",
+    "buttonHasLink": "1",
+    "items": [
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 2000
+      }
+    ]
+  },
+  {
+    "id": "reel-2",
+    "title": "Ваш азиатский гастрономический тур",
+    "text": "Открывайте новые сочетания каждый день",
+    "avatar": "/blocks/reels/assets/reel.webp",
+    "preview": "/blocks/reels/assets/reel.webp",
+    "buttonText": "Забронировать стол 2",
+    "buttonLink": "google2",
+    "buttonHasLink": "1",
+    "items": [
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 5000
+      },
+      {
+        "src": "/blocks/reels/assets/reels.webm",
+        "duration": 3000
+      },
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 1000
+      }
+    ]
+  },
+  {
+    "id": "reel-3",
+    "title": "Ваш азиатский гастрономический тур",
+    "text": "Открывайте новые сочетания каждый день",
+    "avatar": "/blocks/reels/assets/reel.webp",
+    "preview": "/blocks/reels/assets/reel.webp",
+    "buttonText": "Забронировать стол 3",
+    "buttonHasLink": "0",
+    "items": [
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 5000
+      },
+      {
+        "src": "/blocks/reels/assets/reels.webm",
+        "duration": 3000
+      },
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 1000
+      }
+    ]
+  },
+  {
+    "id": "reel-4",
+    "title": "Атмосфера вечера",
+    "text": "Теплый свет, тихая музыка и любимые блюда",
+    "avatar": "/blocks/reels/assets/reel.webp",
+    "preview": "/blocks/reels/assets/reel.webp",
+    "buttonText": "Забронировать стол 4",
+    "buttonHasLink": "0",
+    "items": [
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 5000
+      },
+      {
+        "src": "/blocks/reels/assets/reels.webm",
+        "duration": 3000
+      },
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 1000
+      }
+    ]
+  },
+  {
+    "id": "reel-5",
+    "title": "Новые сочетания",
+    "text": "Собираем яркий ужин из знакомых ингредиентов",
+    "avatar": "/blocks/reels/assets/reel.webp",
+    "preview": "/blocks/reels/assets/reel.webp",
+    "buttonText": "Посмотреть меню",
+    "buttonLink": "/menu",
+    "buttonHasLink": "1",
+    "items": [
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 4000
+      },
+      {
+        "src": "/blocks/reels/assets/reels.webm",
+        "duration": 3000
+      }
+    ]
+  },
+  {
+    "id": "reel-6",
+    "title": "Короткая история кухни",
+    "text": "От первого аромата до последней детали сервировки",
+    "avatar": "/blocks/reels/assets/reel.webp",
+    "preview": "/blocks/reels/assets/reel.webp",
+    "buttonText": "",
+    "buttonHasLink": "-1",
+    "items": [
+      {
+        "src": "/blocks/reels/assets/reels.webm",
+        "duration": 3000
+      },
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 2500
+      }
+    ]
+  },
+  {
+    "id": "reel-7",
+    "title": "Детали подачи",
+    "text": "Смотрим ближе на соусы, травы и текстуры",
+    "avatar": "/blocks/reels/assets/reel.webp",
+    "preview": "/blocks/reels/assets/reel.webp",
+    "buttonText": "Забронировать стол 7",
+    "buttonHasLink": "0",
+    "items": [
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 5000
+      }
+    ]
+  },
+  {
+    "id": "reel-8",
+    "title": "Гастрономический маршрут",
+    "text": "Несколько вкусов в одном вечере",
+    "avatar": "/blocks/reels/assets/reel.webp",
+    "preview": "/blocks/reels/assets/reel.webp",
+    "buttonText": "Открыть маршрут",
+    "buttonLink": "#menu",
+    "buttonHasLink": "1",
+    "items": [
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 2000
+      },
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 2000
+      },
+      {
+        "src": "/blocks/reels/assets/reels.webm",
+        "duration": 3000
+      }
+    ]
+  },
+  {
+    "id": "reel-9",
+    "title": "Финальный акцент",
+    "text": "История для гостей, которые любят пробовать новое",
+    "avatar": "/blocks/reels/assets/reel.webp",
+    "preview": "/blocks/reels/assets/reel.webp",
+    "buttonText": "Забронировать стол 9",
+    "buttonHasLink": "0",
+    "items": [
+      {
+        "src": "/blocks/reels/assets/reels.webm",
+        "duration": 3000
+      },
+      {
+        "src": "/blocks/reels/assets/reel.webp",
+        "duration": 4000
+      }
+    ]
+  }
+]

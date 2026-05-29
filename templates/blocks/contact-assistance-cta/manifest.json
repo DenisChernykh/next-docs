@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "documentation": {
+    "schema": "../../docs/manifest.schema.md",
+    "agentWorkflow": "../../docs/agent-workflow.md",
+    "research": null
+  },
+  "blockId": "contact-assistance-cta",
+  "title": "Contact assistance CTA",
+  "description": "Full-bleed media CTA with title, text, phone/social contacts, primary action, and secondary contact action or modal.",
+  "type": "section",
+  "status": "canonical",
+  "source": {
+    "blade": "section-contact-assistance-cta.blade.php",
+    "demoHtml": "demo.html",
+    "fixture": "fixture.json",
+    "scss": "_contact-assistance-cta.scss",
+    "js": null
+  },
+  "naming": {
+    "sectionFile": "section-contact-assistance-cta.blade.php",
+    "cmsView": "section-contact-assistance-cta",
+    "sectionClass": "contact-assistance-cta",
+    "containerClass": "container--full-bleed",
+    "sectionIdDefault": "contact-assistance-cta",
+    "ariaTitleId": "contact-assistance-cta-title",
+    "ariaLabel": null,
+    "cmsKey": "contactAssistanceCta",
+    "cmsCollection": "contactAssistanceCta",
+    "cmsCompositeKey": "contactAssistanceCta:contactAssistanceCta",
+    "platformProvider": null,
+    "modalId": null,
+    "contactModalId": "modalContact",
+    "componentClasses": [
+      "contact-assistance-cta__panel",
+      "contact-assistance-cta__media",
+      "contact-assistance-cta__overlay",
+      "contact-assistance-cta__content",
+      "contact-assistance-cta__info",
+      "contact-assistance-cta__contacts",
+      "contact-assistance-cta__phone",
+      "contact-assistance-cta__socials",
+      "contact-assistance-cta__actions"
+    ],
+    "variantModifiers": []
+  },
+  "cms": {
+    "method": "get_collections_with_meta",
+    "collection": "contactAssistanceCta",
+    "key": "contactAssistanceCta",
+    "metaFields": [
+      "title",
+      "description",
+      "picture"
+    ],
+    "itemFields": [
+      "button_text",
+      "button_link",
+      "button_second_text",
+      "button_second_link",
+      "modal_id"
+    ],
+    "variables": [
+      "telephone",
+      "vk_link",
+      "max_link",
+      "button_main_text",
+      "button_main_link",
+      "button_contact_text",
+      "button_contact_link"
+    ],
+    "providers": [],
+    "normalization": [
+      "Normalize telephone to a tel:+7... link when the visible value starts with 8 and has 11 digits.",
+      "Treat empty, #, modalContact, and #modalContact secondary links as shared contact modal triggers.",
+      "Render social links only when the corresponding variable is non-empty and not #."
+    ]
+  },
+  "requiresFoundation": {
+    "cssClasses": [
+      "section",
+      "section--flush",
+      "section--curved-top",
+      "section--curved-bottom",
+      "container",
+      "container--full-bleed",
+      "section-header",
+      "section-header--column",
+      "section-title",
+      "section-text",
+      "section-text--inverted",
+      "button",
+      "button--primary",
+      "button--glass-arrow",
+      "button--block",
+      "social-link",
+      "social-link--sm",
+      "social-link--vk",
+      "social-link--max"
+    ],
+    "partials": [
+      "button"
+    ],
+    "scss": [
+      "foundation/section/_section.scss",
+      "foundation/button/_button.scss",
+      "foundation/social/_social-link.scss"
+    ],
+    "helpers": [
+      "get_collections_with_meta",
+      "get_variable",
+      "assets_url",
+      "get_view"
+    ],
+    "runtime": [
+      "shared modal system handling data-modal-id and data-modal-close",
+      "optional header surface handling for data-header-surface"
+    ]
+  },
+  "dependencies": {
+    "js": [],
+    "assets": [
+      "assets/background.webp",
+      "assets/icon-vk.svg",
+      "assets/icon-max.svg"
+    ],
+    "assetGroups": {
+      "socialIcons": {
+        "targetDirectory": "images/icons",
+        "files": [
+          "icon-vk.svg",
+          "icon-max.svg"
+        ],
+        "note": "Demo icons are block-local. Target projects may map these to their shared social icon assets."
+      }
+    }
+  },
+  "variants": [],
+  "aliases": {
+    "purpose": "Legacy names from existing projects. Agents use these only to find and map old implementations; new code must use the canonical naming fields.",
+    "classes": [
+      "booking-help",
+      "booking-panel"
+    ],
+    "ids": [
+      "booking-help",
+      "booking"
+    ],
+    "cmsKeys": [
+      "bookingHelp:bookingHelp",
+      "booking:booking"
+    ],
+    "files": [
+      "section-booking-help.blade.php",
+      "section-booking-panel.blade.php",
+      "_booking-help.scss",
+      "_booking-panel.scss"
+    ],
+    "dataAttributes": [],
+    "modals": [
+      "modalContact"
+    ],
+    "projects": [
+      {
+        "name": "hvoya-cms-preview",
+        "repoPath": "../hvoya-cms-preview",
+        "bladePath": "resources/views/section/section-booking-help.blade.php",
+        "scssPath": "assets/scss/sections/_booking-help.scss",
+        "fixturePath": "fixtures/default.php"
+      },
+      {
+        "name": "hvoya-cms-preview",
+        "repoPath": "../hvoya-cms-preview",
+        "bladePath": "resources/views/section/section-booking-panel.blade.php",
+        "scssPath": "assets/scss/sections/_booking-panel.scss",
+        "fixturePath": "fixtures/default.php"
+      }
+    ]
+  },
+  "designRefs": [],
+  "agent": {
+    "usage": "Use this block when the target section is a full-bleed image CTA that helps users choose an option or contact the team, with optional phone/social contacts and one or two actions.",
+    "transferSteps": [
+      "Copy section-contact-assistance-cta.blade.php as the target section view unless the project has an explicit naming map.",
+      "Ensure required foundation styles, social-link styles, and the button partial exist before adding block-specific SCSS.",
+      "Add a contactAssistanceCta:contactAssistanceCta collection fixture or map an existing legacy key through the target CMS layer.",
+      "Map picture to a project-owned media asset; do not keep project-specific asset directory names in new code.",
+      "Use section--curved-top and section--curved-bottom for the canonical transition lines; do not add the legacy section--curved-caps modifier."
+    ],
+    "acceptance": [
+      "Rendered section has the canonical .contact-assistance-cta class.",
+      "Rendered section uses the neutral section--curved-top and section--curved-bottom foundation modifiers for transition lines.",
+      "Rendered section uses section--flush and .container.container--full-bleed foundation classes instead of block-specific .container overrides.",
+      "Rendered section uses the canonical #contact-assistance-cta id and #contact-assistance-cta-title heading id unless a target project explicitly remaps anchors.",
+      "Block-specific SCSS does not target or override .section, .container, .section-header, .section-title, .section-text, .button, or .social-link.",
+      "Primary and secondary actions render through the foundation button partial/classes only.",
+      "Blade reads get_collections_with_meta('contactAssistanceCta', 'contactAssistanceCta', ...).",
+      "Title, text, picture, action labels, action links, modal id, phone, and socials can be changed through CMS data or variables.",
+      "Legacy names appear only in manifest aliases.",
+      "demo.html visually mirrors section-contact-assistance-cta.blade.php structure."
+    ],
+    "notes": [
+      "This block intentionally excludes curved cap transitions because they are page-level decoration, not the reusable block contract."
+    ],
+    "futureGeneralization": null
+  }
+}

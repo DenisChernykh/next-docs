@@ -1,0 +1,26 @@
+{
+  "variables": {
+    "site_name": "ГРАНЬ",
+    "name": "ГРАНЬ",
+    "logo": "/blocks/brand-statement-cta/assets/logo-compact.svg",
+    "button_main_text": "Записаться онлайн",
+    "button_main_link": "#modalContact"
+  },
+  "collections_with_meta": {
+    "brandStatementCta:brandStatementCta": {
+      "active": true,
+      "meta": {
+        "title": "Мы&nbsp;создаём новый стандарт ухода за&nbsp;автомобилем",
+        "description": "Сомневаетесь в&nbsp;результате? Приезжайте к&nbsp;нам в&nbsp;студию. Мы&nbsp;бесплатно отполируем небольшой участок вашего авто, чтобы вы&nbsp;увидели разницу своими глазами."
+      },
+      "items": [
+        {
+          "logo": "/blocks/brand-statement-cta/assets/logo-compact.svg",
+          "button_text": "Записаться онлайн",
+          "button_link": "#modalContact",
+          "modal_id": "modalContact"
+        }
+      ]
+    }
+  }
+}

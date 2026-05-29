@@ -1,0 +1,34 @@
+{
+  "variables": {
+    "button_main_text": "Записаться онлайн",
+    "button_main_link": "#modalContact"
+  },
+  "collections_with_meta": {
+    "alternatingMediaCta:alternatingMediaCta": {
+      "active": true,
+      "meta": {},
+      "items": [
+        {
+          "title": "Особый подход к&nbsp;нестандартным задачам",
+          "text": "<p>Не&nbsp;нашли нужную услугу в&nbsp;списке или&nbsp;хотите реализовать сложный комплексный проект? Опишите вашу идею в&nbsp;свободной форме: будь то&nbsp;реставрация редкого салона, оклейка уникальным матовым полиуретаном или&nbsp;подготовка авто к&nbsp;выставке. Мы&nbsp;рассчитаем индивидуальный план работ.</p>",
+          "images": "[\"/blocks/alternating-media-cta/assets/nonstandard-request.png\"]",
+          "image_alt": "Особый подход к нестандартным задачам",
+          "button_show": true,
+          "button_text": "Записаться онлайн",
+          "button_link": "#modalContact",
+          "modal_id": "modalContact"
+        },
+        {
+          "title": "Не&nbsp;знаете, с&nbsp;чего начать? Расскажите, что&nbsp;вас&nbsp;беспокоит.",
+          "text": "<p>Не&nbsp;нашли нужную услугу в&nbsp;списке или&nbsp;хотите реализовать сложный комплексный проект? Опишите вашу идею в&nbsp;свободной форме: будь то&nbsp;реставрация редкого салона, оклейка уникальным матовым полиуретаном или&nbsp;подготовка авто к&nbsp;выставке. Мы&nbsp;рассчитаем индивидуальный план работ.</p>",
+          "images": "[\"/blocks/alternating-media-cta/assets/consultation-start.png\"]",
+          "image_alt": "Не знаете, с чего начать? Расскажите, что вас беспокоит.",
+          "button_show": true,
+          "button_text": "Записаться онлайн",
+          "button_link": "#modalContact",
+          "modal_id": "modalContact"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "documentation": {
+    "schema": "../../docs/manifest.schema.md",
+    "agentWorkflow": "../../docs/agent-workflow.md",
+    "research": null
+  },
+  "blockId": "reels",
+  "title": "Reels",
+  "description": "Short story/reels rail copied from for-stories: circular previews, fullscreen modal playback, image/video segments, progress bars, and CTA modes.",
+  "type": "section",
+  "status": "canonical",
+  "source": {
+    "blade": "section-reels.blade.php",
+    "demoHtml": "demo.html",
+    "fixture": "fixture.json",
+    "scss": "_reels.scss",
+    "js": "reels.js",
+    "demoScss": "_reels.demo.scss",
+    "demoJs": "reels.demo.js"
+  },
+  "naming": {
+    "sectionFile": "section-reels.blade.php",
+    "cmsView": null,
+    "sectionClass": "reels section-reels",
+    "containerClass": "container-reels",
+    "sectionIdDefault": "stories",
+    "ariaTitleId": null,
+    "ariaLabel": null,
+    "cmsKey": "stories_popups",
+    "cmsCollection": "stories",
+    "cmsCompositeKey": "stories:stories_popups",
+    "platformProvider": null,
+    "modalId": "reels",
+    "contactModalId": "table",
+    "componentClasses": [
+      "section-reels",
+      "container-reels",
+      "reels__item",
+      "reels__preview",
+      "reels__description",
+      "reels-modal",
+      "reels-modal__item",
+      "reels-modal__contents",
+      "reels-modal__button"
+    ],
+    "variantModifiers": []
+  },
+  "cms": {
+    "method": "get_collections",
+    "collection": "stories",
+    "key": "stories_popups",
+    "metaFields": [],
+    "itemFields": [
+      "image",
+      "text",
+      "imagenormal",
+      "button_text",
+      "button_link"
+    ],
+    "variables": [
+      "$stories",
+      "$reels"
+    ],
+    "providers": [],
+    "normalization": [
+      "Blade reads stories:stories_popups and renders the for-stories reels DOM when the collection has items."
+    ]
+  },
+  "requiresFoundation": {
+    "cssClasses": [
+      "button",
+      "button--primary",
+      "button--arrow"
+    ],
+    "partials": [],
+    "scss": [
+      "foundation/button/_button.scss"
+    ],
+    "helpers": [],
+    "runtime": [
+      "modules-vg-reels runtime and styles",
+      "Swiper base styles",
+      "shared modal bridge exposing window.__VGMODALS_INITIALIZED__ and window.Modals.getModal(id)"
+    ]
+  },
+  "dependencies": {
+    "js": [
+      "reels.js",
+      "reels.demo.js",
+      "modules-vg-reels",
+      "swiper"
+    ],
+    "assets": [
+      "assets/reel.webp",
+      "assets/reels.webm"
+    ],
+    "assetGroups": {
+      "media": {
+        "targetDirectory": "images/reels",
+        "fields": [],
+        "note": "Fixture assets mirror for-stories demo assets and are not a CMS contract."
+      }
+    }
+  },
+  "variants": [],
+  "aliases": {
+    "purpose": "No legacy stories/reels runtime aliases are used by this canonical block.",
+    "classes": [],
+    "ids": [],
+    "cmsKeys": [],
+    "files": [],
+    "dataAttributes": [
+      "data-reels-preview-wrapper",
+      "data-reels-preview-trigger",
+      "data-reels-modal-wrapper",
+      "data-reel",
+      "data-reel-attr",
+      "window.__REELS_MOCK__"
+    ],
+    "modals": [
+      "reels",
+      "table"
+    ],
+    "projects": [
+      {
+        "name": "for-stories",
+        "repoPath": "for-stories",
+        "htmlPath": "templates/blocks/reels.html",
+        "scssPath": "assets/styles/components/blocks/_reels.scss",
+        "jsPath": "assets/js/index.js",
+        "role": "canonical frontend source"
+      }
+    ]
+  },
+  "designRefs": [],
+  "agent": {
+    "usage": "Use this block when the target section should match the for-stories reels implementation and be wrapped by the stories:stories_popups CMS collection check.",
+    "transferSteps": [
+      "For a target project copy section-reels.blade.php, _reels.scss, reels.js, and assets. Do not copy demo.html, _reels.demo.scss, reels.demo.js, or fixture.json unless you need a local preview.",
+      "Keep the for-stories DOM classes section-reels and container-reels.",
+      "Use the project's existing stories/reels data bootstrap with this Blade view. The demo fixture is registry-only.",
+      "Ensure the target modal runtime exposes window.__VGMODALS_INITIALIZED__ and window.Modals.getModal('reels'), or provide an adapter equivalent to the registry modal bridge."
+    ],
+    "acceptance": [
+      "section-reels.blade.php keeps the for-stories reels DOM and wraps it with get_collections('stories', 'stories_popups', ...).",
+      "demo.html matches for-stories/templates/blocks/reels.html.",
+      "_reels.scss is a direct port of for-stories/assets/styles/components/blocks/_reels.scss with only local media mixin definitions changed for registry compilation.",
+      "reels.js initializes modules-vg-reels with the same Swiper settings as for-stories/assets/js/index.js.",
+      "reels.js does not import fixture.json or registry demo data.",
+      "reels.demo.js is the only JS file that imports fixture.json.",
+      "_reels.demo.scss is the registry SCSS entry and _reels.scss is the project SCSS entry.",
+      "No templates/stories or legacy stories/reels implementation is present in the registry runtime path.",
+      "The modal opens through data-modal=\"reels\" and closing stops playback through the modules-vg-reels lifecycle.",
+      "Blade renders nothing when stories:stories_popups has no items."
+    ],
+    "notes": [
+      "The registry demo continues to use fixture.json through reels.demo.js."
+    ],
+    "futureGeneralization": null
+  }
+}

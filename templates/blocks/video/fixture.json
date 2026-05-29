@@ -1,0 +1,19 @@
+{
+  "collections_with_meta": {
+    "video:video": {
+      "active": true,
+      "meta": {
+        "title": "Детейлинг в&nbsp;деталях: как мы работаем",
+        "description": "Загляните за&nbsp;кулисы. Показываем наши стандарты, оборудование лаборатории и&nbsp;реальный процесс защиты премиальных автомобилей."
+      },
+      "items": [
+        {
+          "video": "/blocks/video/assets/demo-video.webm",
+          "preview": "/blocks/video/assets/poster.png",
+          "button_text": "Смотреть",
+          "image_alt": "Видео-превью пространства"
+        }
+      ]
+    }
+  }
+}

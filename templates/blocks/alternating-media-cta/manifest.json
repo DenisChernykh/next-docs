@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "documentation": {
+    "schema": "../../docs/manifest.schema.md",
+    "agentWorkflow": "../../docs/agent-workflow.md",
+    "research": null
+  },
+  "blockId": "alternating-media-cta",
+  "title": "Alternating media CTA",
+  "description": "A stacked pair or list of two-column CTA rows where text cards and images alternate left/right.",
+  "type": "section",
+  "status": "canonical",
+  "source": {
+    "blade": "section-alternating-media-cta.blade.php",
+    "demoHtml": "demo.html",
+    "fixture": "fixture.json",
+    "scss": "_alternating-media-cta.scss",
+    "js": null
+  },
+  "naming": {
+    "sectionFile": "section-alternating-media-cta.blade.php",
+    "cmsView": "section-alternating-media-cta",
+    "sectionClass": "alternating-media-cta",
+    "containerClass": "alternating-media-cta__container",
+    "sectionIdDefault": "alternating-media-cta",
+    "ariaTitleId": null,
+    "ariaLabel": "Индивидуальные CTA-блоки с изображениями",
+    "cmsKey": "alternatingMediaCta",
+    "cmsCollection": "alternatingMediaCta",
+    "cmsCompositeKey": "alternatingMediaCta:alternatingMediaCta",
+    "platformProvider": null,
+    "modalId": null,
+    "contactModalId": null,
+    "componentClasses": [],
+    "variantModifiers": []
+  },
+  "cms": {
+    "method": "get_collections_with_meta",
+    "collection": "alternatingMediaCta",
+    "key": "alternatingMediaCta",
+    "metaFields": [],
+    "itemFields": [
+      "title",
+      "text",
+      "images",
+      "image_alt",
+      "button_show",
+      "button_text",
+      "button_link",
+      "modal_id"
+    ],
+    "variables": [
+      "button_main_text",
+      "button_main_link"
+    ],
+    "providers": [],
+    "normalization": []
+  },
+  "requiresFoundation": {
+    "cssClasses": [
+      "section",
+      "container",
+      "button"
+    ],
+    "partials": [
+      "button"
+    ],
+    "scss": [
+      "foundation/section/_section.scss",
+      "foundation/button/_button.scss"
+    ],
+    "helpers": [
+      "get_collections_with_meta",
+      "get_variable",
+      "get_view",
+      "assets_url"
+    ],
+    "runtime": []
+  },
+  "dependencies": {
+    "js": [],
+    "assets": [
+      "assets/nonstandard-request.png",
+      "assets/consultation-start.png"
+    ],
+    "assetGroups": {}
+  },
+  "variants": [],
+  "aliases": {
+    "purpose": "Legacy names from existing projects. Agents use these only to find and map old implementations; new code must use the canonical naming fields.",
+    "classes": [
+      "detailing-consultation",
+      "comfort-details"
+    ],
+    "ids": [
+      "detailing-consultation",
+      "informations"
+    ],
+    "cmsKeys": [
+      "detailingConsultation:detailingConsultation",
+      "informations:informations"
+    ],
+    "files": [
+      "section-detailing-consultation.blade.php",
+      "_detailing-consultation.scss",
+      "section-informations.blade.php",
+      "_comfort-details.scss"
+    ],
+    "dataAttributes": [],
+    "modals": [],
+    "projects": [
+      {
+        "name": "edge",
+        "repoPath": "../laravel/edge",
+        "bladePath": "resources/views/section/section-detailing-consultation.blade.php",
+        "scssPath": "assets/scss/sections/_detailing-consultation.scss",
+        "fixturePath": "fixtures/default.php",
+        "note": "Edge names this visual block detailing-consultation and stores CMS data under detailingConsultation:detailingConsultation."
+      },
+      {
+        "name": "hvoya-cms-preview",
+        "repoPath": "../hvoya-cms-preview",
+        "bladePath": "resources/views/section/section-informations.blade.php",
+        "includePath": "resources/views/section/section-comfort-details.blade.php",
+        "scssPath": "assets/scss/sections/_comfort-details.scss",
+        "note": "Hvoya uses the related comfort-details/informations implementation for alternating media/text rows."
+      }
+    ]
+  },
+  "designRefs": [
+    {
+      "project": "edge",
+      "figmaFileKey": "FqDgL2WVFhLuMwMidZg7e9",
+      "nodeId": "1067:12731",
+      "role": "first-row-reference"
+    },
+    {
+      "project": "edge",
+      "figmaFileKey": "FqDgL2WVFhLuMwMidZg7e9",
+      "nodeId": "1067:12758",
+      "role": "second-row-reference"
+    },
+    {
+      "project": "edge",
+      "figmaFileKey": "FqDgL2WVFhLuMwMidZg7e9",
+      "nodeId": "1133:1561",
+      "role": "mobile-row-reference"
+    }
+  ],
+  "agent": {
+    "usage": "Use this block when the target section is a list of two-column CTA rows with a text card, primary CTA, and image, where row direction alternates on desktop and stacks text before image on mobile.",
+    "transferSteps": [
+      "Copy section-alternating-media-cta.blade.php as the target section view unless the project has an explicit naming map.",
+      "Ensure required foundation styles and the button partial exist before adding block-specific SCSS.",
+      "Add an alternatingMediaCta:alternatingMediaCta collection fixture or map an existing legacy key through the target CMS layer.",
+      "Copy block image assets or map CMS image fields to project-owned assets.",
+      "Override local --alternating-media-cta-* tokens when the target project needs different spacing or geometry.",
+      "Do not duplicate container or button foundation styles inside the block SCSS."
+    ],
+    "acceptance": [
+      "Rendered section has the canonical .alternating-media-cta class.",
+      "Rendered section wraps the list in .container.alternating-media-cta__container without block-specific .container overrides.",
+      "Desktop rendering alternates the second row with .alternating-media-cta__item--reverse.",
+      "Mobile rendering stacks content before media for every item.",
+      "Block-specific spacing and geometry are exposed through local --alternating-media-cta-* tokens.",
+      "Block-specific SCSS does not target or override .section-title, .section-text, .container, or .button.",
+      "CTA buttons render through the foundation button partial/classes only, without a local block-specific button class.",
+      "Blade reads get_collections_with_meta('alternatingMediaCta', 'alternatingMediaCta', ...).",
+      "Title, text, images, and CTA can be changed through CMS data.",
+      "demo.html visually mirrors section-alternating-media-cta.blade.php structure."
+    ],
+    "notes": [],
+    "futureGeneralization": null
+  }
+}

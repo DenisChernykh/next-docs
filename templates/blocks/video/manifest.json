@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "documentation": {
+    "schema": "../../docs/manifest.schema.md",
+    "agentWorkflow": "../../docs/agent-workflow.md",
+    "research": null
+  },
+  "blockId": "video",
+  "title": "Video",
+  "description": "Poster video section with a centered heading, supporting text, and inline play control.",
+  "type": "section",
+  "status": "canonical",
+  "source": {
+    "blade": "section-video.blade.php",
+    "demoHtml": "demo.html",
+    "fixture": "fixture.json",
+    "scss": "_video.scss",
+    "js": "video.js"
+  },
+  "naming": {
+    "sectionFile": "section-video.blade.php",
+    "cmsView": "section-video",
+    "sectionClass": "video",
+    "containerClass": null,
+    "sectionIdDefault": "video",
+    "ariaTitleId": "video-title",
+    "ariaLabel": null,
+    "cmsKey": "video",
+    "cmsCollection": "video",
+    "cmsCompositeKey": "video:video",
+    "platformProvider": null,
+    "modalId": null,
+    "contactModalId": null,
+    "componentClasses": [],
+    "variantModifiers": []
+  },
+  "cms": {
+    "method": "get_collections_with_meta",
+    "collection": "video",
+    "key": "video",
+    "metaFields": [
+      "title",
+      "description"
+    ],
+    "itemFields": [
+      "video",
+      "preview",
+      "button_text",
+      "image_alt"
+    ],
+    "variables": [],
+    "providers": [],
+    "normalization": []
+  },
+  "requiresFoundation": {
+    "cssClasses": [
+      "section",
+      "container",
+      "section-header",
+      "section-header--column",
+      "section-title",
+      "section-text",
+      "video-play-button"
+    ],
+    "partials": [
+      "video-play-button"
+    ],
+    "scss": [
+      "foundation/section/_section.scss",
+      "foundation/button/_video-play-button.scss"
+    ],
+    "helpers": [
+      "get_collections_with_meta",
+      "get_view",
+      "assets_url"
+    ],
+    "runtime": [
+      "lazy video runtime handling data-lazyvideo and data-lazyvideo-button"
+    ]
+  },
+  "dependencies": {
+    "js": [
+      "video.js"
+    ],
+    "assets": [
+      "assets/poster.png",
+      "assets/demo-video.webm"
+    ],
+    "assetGroups": {}
+  },
+  "variants": [],
+  "aliases": {
+    "purpose": "Legacy names from existing projects. Agents use these only to find and map old implementations; new code must use the canonical naming fields.",
+    "classes": [
+      "video-preview",
+      "atmosphere"
+    ],
+    "ids": [
+      "video-preview",
+      "atmosphere"
+    ],
+    "cmsKeys": [
+      "videoPreview:videoPreview",
+      "atmosphere:atmosphere"
+    ],
+    "files": [
+      "section-video-preview.blade.php",
+      "section-atmosphere.html",
+      "section-atmosphere.blade.php",
+      "_video-preview.scss",
+      "_atmosphere.scss",
+      "lazyvideo.js"
+    ],
+    "dataAttributes": [],
+    "modals": [],
+    "projects": [
+      {
+        "name": "edges",
+        "repoPath": "../edges",
+        "htmlPath": "templates/sections/section-atmosphere.html",
+        "scssPath": "assets/scss/sections/_atmosphere.scss",
+        "jsPath": "assets/js/modules/lazyvideo.js",
+        "note": "Edges uses the legacy atmosphere name and an inline video poster with data-lazyvideo."
+      },
+      {
+        "name": "needles",
+        "repoPath": "../needles",
+        "htmlPath": "templates/sections/section-atmosphere.html",
+        "scssPath": "assets/scss/sections/_atmosphere.scss",
+        "jsPath": "assets/js/modules/lazyvideo.js",
+        "note": "Needles uses the legacy atmosphere name with the same inline playback behavior."
+      },
+      {
+        "name": "hvoya-cms-preview",
+        "repoPath": "../hvoya-cms-preview",
+        "bladePath": "resources/views/section/section-video.blade.php",
+        "scssPath": "assets/scss/sections/_atmosphere.scss",
+        "note": "Hvoya maps atmosphere CMS data through section-video.blade.php."
+      }
+    ]
+  },
+  "designRefs": [
+    {
+      "project": "detailing",
+      "figmaFileKey": "FqDgL2WVFhLuMwMidZg7e9",
+      "nodeId": "1067:12769",
+      "role": "reference"
+    },
+    {
+      "project": "hotels",
+      "figmaFileKey": "KPTAXJsGu2l6IJ00K8VHph",
+      "nodeId": "759:1803",
+      "role": "reference"
+    }
+  ],
+  "agent": {
+    "usage": "Use this block when the target section is a large video/poster preview with a title, supporting text, and an inline play control that starts video playback in place. Do not use it for generic image CTAs, galleries, or modal-only video links.",
+    "transferSteps": [
+      "Copy section-video.blade.php as the target section view unless the project has an explicit naming map.",
+      "Ensure required section foundation styles and the video-play-button primitive exist before adding block-specific SCSS.",
+      "Ensure the lazy video runtime is initialized when the page contains video[data-lazyvideo].",
+      "Add a video:video collection fixture or map an existing legacy videoPreview:videoPreview or atmosphere:atmosphere key through the target CMS layer.",
+      "Keep poster and video source values in CMS data; use local assets only as demo/fallback content."
+    ],
+    "acceptance": [
+      "Rendered section has the canonical .video class.",
+      "Rendered target-project section uses id=\"video\" and aria-labelledby=\"video-title\" unless an explicit target-project anchor map overrides it.",
+      "Rendered section uses .section-header.section-header--column, .section-title, and .section-text without block-specific overrides of those primitives.",
+      "Rendered media uses video[data-lazyvideo=\"reset\"] with poster data and an optional source[src] or source[data-src].",
+      "The play control uses .video-play-button and not .button or a block-specific CTA button class.",
+      "Clicking the play control starts inline playback only when a video source exists.",
+      "When a source exists, click adds .is-started to the media wrapper, enables native video controls, unmutes the video, and hides the play control.",
+      "When no source exists, click leaves the play control visible and does not add .is-started.",
+      "Block-specific SCSS does not target or override .section, .container, .section-header, .section-title, .section-text, or .button.",
+      "demo.html visually mirrors section-video.blade.php structure."
+    ],
+    "notes": [],
+    "futureGeneralization": null
+  }
+}

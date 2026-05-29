@@ -1,0 +1,81 @@
+@use '../../foundation/section/mixins' as *;
+
+.video {
+  --video-inner-gap: 60rem;
+  --video-media-width: 1464rem;
+  --video-media-radius: 32rem;
+  --video-media-aspect-ratio: 1464 / 802;
+  --video-overlay-color: transparent;
+
+  background: var(--bg-default);
+  color: var(--text-fg_default);
+
+  &__inner {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--video-inner-gap);
+  }
+
+  &__media-wrap {
+    position: relative;
+    width: min(100%, var(--video-media-width));
+    aspect-ratio: var(--video-media-aspect-ratio);
+    overflow: hidden;
+    border-radius: var(--video-media-radius);
+    background: var(--bg-muted);
+  }
+
+  &__media {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__media-wrap::after {
+    position: absolute;
+    inset: 0;
+    background: var(--video-overlay-color);
+    content: "";
+    pointer-events: none;
+  }
+
+  &__action {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  &__media-wrap.is-started &__action {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  @include tablet {
+    --video-inner-gap: 48rem;
+    --video-media-radius: 24rem;
+  }
+
+  @include mobile {
+    --video-inner-gap: 32px;
+    --video-media-radius: 12px;
+    --video-media-aspect-ratio: 343 / 188;
+
+    &__action {
+      top: calc(50% + 1px);
+      left: calc(50% - 2px);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "variables": {
+    "telephone": "+7 (999) 999-99-99",
+    "vk_link": "https://vk.com/",
+    "max_link": "https://max.ru/",
+    "button_main_text": "Выбрать вариант",
+    "button_main_link": "#catalog",
+    "button_contact_text": "Получить консультацию",
+    "button_contact_link": "#"
+  },
+  "collections_with_meta": {
+    "contactAssistanceCta:contactAssistanceCta": {
+      "active": true,
+      "meta": {
+        "title": "Нужна помощь с&nbsp;выбором?",
+        "description": "Расскажем о&nbsp;доступных вариантах, уточним детали и&nbsp;поможем подобрать решение под ваш запрос.",
+        "picture": "/blocks/contact-assistance-cta/assets/background.webp"
+      },
+      "items": [
+        {
+          "button_text": "Выбрать вариант",
+          "button_link": "#catalog",
+          "button_second_text": "Получить консультацию",
+          "button_second_link": "#",
+          "modal_id": "modalContact"
+        }
+      ]
+    }
+  }
+}

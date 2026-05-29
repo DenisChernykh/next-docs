@@ -1,0 +1,129 @@
+@use "../section/mixins" as *;
+@use "../section/variables" as *;
+
+.video-play-button {
+  --video-play-button-bg: var(--bg-default);
+  --video-play-button-border: var(--border-brand, var(--text-fg_brand));
+  --video-play-button-color: var(--text-fg_brand);
+  --video-play-button-icon-bg: var(--brand-solid);
+  --video-play-button-icon-color: var(--text-fg_static-white);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20rem;
+  min-height: 56rem;
+  padding: 4rem 4rem 4rem 24rem;
+  border: 2rem solid var(--video-play-button-border);
+  border-radius: 12rem;
+  background: var(--video-play-button-bg);
+  color: var(--video-play-button-color);
+  font-family: var(--font-button, var(--font-main));
+  font-size: 16rem;
+  font-weight: 400;
+  line-height: 24rem;
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color $transition,
+    border-color $transition,
+    color $transition,
+    opacity $transition,
+    transform $transition;
+
+  &:not(:disabled, [disabled]) {
+    @include hover {
+      --video-play-button-border: var(--brand-solid);
+      --video-play-button-color: var(--brand-solid);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &__text,
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon {
+    position: relative;
+    width: 60rem;
+    height: 44rem;
+    flex: 0 0 60rem;
+    border-radius: 8rem;
+    background: var(--video-play-button-icon-bg);
+    color: var(--video-play-button-icon-color);
+  }
+
+  &__icon::before {
+    width: 14rem;
+    height: 14rem;
+    background: currentColor;
+    clip-path: polygon(20% 8%, 20% 92%, 88% 50%);
+    content: "";
+  }
+
+  &__icon::after {
+    content: none;
+  }
+
+  &:disabled,
+  &[disabled],
+  &[aria-disabled="true"] {
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
+  @include mobile {
+    --video-play-button-border: var(--border-default);
+    --video-play-button-icon-bg: transparent;
+    --video-play-button-icon-color: var(--brand-solid);
+
+    gap: 16px;
+    min-height: 48px;
+    padding: 10px 10px 10px 20px;
+    border-width: 2px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 20px;
+
+    &__icon {
+      width: 24px;
+      height: 24px;
+      flex-basis: 24px;
+      border-radius: 0;
+    }
+
+    &__icon::before {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 11px;
+      height: 11px;
+      border-top: 2px solid currentColor;
+      border-right: 2px solid currentColor;
+      background: transparent;
+      clip-path: none;
+      content: "";
+    }
+
+    &__icon::after {
+      position: absolute;
+      top: 12px;
+      right: 5px;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      content: "";
+      transform: rotate(-45deg);
+      transform-origin: right center;
+    }
+  }
+}
