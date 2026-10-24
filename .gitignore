@@ -5,3 +5,11 @@ dist/
 *.tsbuildinfo
 .env*
 !.env.example
+.DS_Store
+.pnpm-store/
+.env
+.env.local
+.env.production
+.dev.vars
+*.log
+!*.example
